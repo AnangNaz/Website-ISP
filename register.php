@@ -14,8 +14,11 @@ if (isset($_POST['register'])) {
     $query = "INSERT INTO users (nama, password, no) VALUES ('$nama', '$hashed_password', '$no')";
 
     if (mysqli_query($db, $query)) {
-        echo "Data berhasil disimpan!";
+        header("Location: login.php");
+        exit();
     } else {
         echo "Error: " . mysqli_error($db);
     }
 }
+?>
+
