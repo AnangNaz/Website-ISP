@@ -8,7 +8,7 @@
 <body>
     <div>
         <div>
-            <form action="index.php" method="POST">
+            <form action="register.php" method="POST">
                 <input name="nama" type="text">
                 <input name="password" type="password">
                 <input name="no" type="text">
