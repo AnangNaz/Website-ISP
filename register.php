@@ -1,19 +1,32 @@
 <?php
+session_start();
 include("koneksi.php");
+
+if (!$db) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
 
 if (isset($_POST['register'])) {
     $nama = $_POST['nama'];
     $password = $_POST['password'];
-    $no = $_POST['no']; 
+    $no = $_POST['no'];
 
     $nama = mysqli_real_escape_string($db, $nama);
     $password = mysqli_real_escape_string($db, $password);
     $no = mysqli_real_escape_string($db, $no);
+    $query_check = "SELECT * FROM users WHERE nama = '$nama'";
+    $result_check = mysqli_query($db, $query_check);
+
+    if (mysqli_num_rows($result_check) > 0) {
+        echo "Nama pengguna sudah terdaftar!";
+        exit();
+    }
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $query = "INSERT INTO users (nama, password, no) VALUES ('$nama', '$hashed_password', '$no')";
 
     if (mysqli_query($db, $query)) {
+        $_SESSION['message'] = "Registrasi berhasil! Silakan login.";
         header("Location: login.php");
         exit();
     } else {
@@ -23,6 +36,7 @@ if (isset($_POST['register'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +47,7 @@ if (isset($_POST['register'])) {
     .main {
         height: 100vh;
     }
+
     .login-box {
         width: 500px;
         height: 425px;
@@ -40,6 +55,7 @@ if (isset($_POST['register'])) {
         border-radius: 10px;
     }
 </style>
+
 <body>
     <div class="main d-flex justify-content-center align-items-center">
         <div class="login-box p-4 shadow">
@@ -57,7 +73,7 @@ if (isset($_POST['register'])) {
                     <label for="nomor" class="form-label">Nomor</label>
                     <input type="text" class="form-control" name="no" id="nomor" required>
                 </div>
-                <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
+                <button class="btn btn-primary w-100" type="submit" name="register">Register</button>
             </form>
             <p class="text-center mt-3">
                 Sudah punya akun? <a href="login.php">Login di sini</a>
@@ -66,5 +82,5 @@ if (isset($_POST['register'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 
+</html>

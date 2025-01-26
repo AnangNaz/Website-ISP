@@ -1,23 +1,29 @@
 <?php
-session_start(); 
+session_start();
 include("koneksi.php");
 
 if (isset($_POST['login'])) {
     $nama = $_POST['nama'];
     $password = $_POST['password'];
-
     $nama = mysqli_real_escape_string($db, $nama);
-
     $query = "SELECT * FROM users WHERE nama = '$nama'";
     $result = mysqli_query($db, $query);
 
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
+
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $user['nama'];
-            $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
-            header("Location: index.php"); 
-            exit();
+            if ($nama === 'admin' && $password === 'admin') {
+                $_SESSION['user'] = $user['nama'];
+                $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
+                header("Location: admin.php"); 
+                exit();
+            } else {
+                $_SESSION['user'] = $user['nama'];
+                $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
+                header("Location: index.php");
+                exit();
+            }
         } else {
             $_SESSION['message'] = "Password salah!";
         }
@@ -28,7 +34,6 @@ if (isset($_POST['login'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,15 +65,15 @@ if (isset($_POST['login'])) {
         <div class="login-box">
             <h3 class="text-center">Login</h3>
             <?php if (isset($_SESSION['message'])): ?>
-                <div class="alert alert-info">
-                    <?php
-                    echo $_SESSION['message'];
-                    unset($_SESSION['message']);
-                    ?>
-                </div>
+                <?php
+                if (isset($_SESSION['message'])) {
+                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                    unset($_SESSION['message']); 
+                }
+                ?>
             <?php endif; ?>
 
-            <form action="login.php" method="POST"> 
+            <form action="login.php" method="POST">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control" name="nama" id="nama" required>
@@ -86,7 +91,7 @@ if (isset($_POST['login'])) {
                 Anda ingin mengganti password? <a href="changePw.php">klik di sini</a>
             </p>
         </div>
- </div>
+    </div>
 </body>
 
 </html>
