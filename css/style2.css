@@ -21,7 +21,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff9f9;
-    min-height: 2070px;
+    min-height: 2500px;
 }
 
 /* navbar */
@@ -30,7 +30,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.4rem 7%;
-    background-color: #333;
+    background-color: rgba(1, 1, 1, 0.8);
     border-bottom: 1px solid #6d5138;
     position: fixed;
     top: 0;
@@ -58,14 +58,14 @@ body {
 }
 
 .navbar .navbar-nav a:hover {
-    color: var(--primary);
+    color: #3e67c1;
 }
 
 .navbar .navbar-nav a::after {
     content: '';
     display: block;
     padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid var(--primary);
+    border-bottom: 0.1rem solid #3e67c1;
     transform: scaleX(0);
     transition: 0.2s linear;
 }
@@ -80,11 +80,7 @@ body {
 }
 
 .navbar .navbar-extra a:hover {
-    color: var(--primary);
-}
-
-#hamburger-menu {
-    display: none;
+    color: #3e67c1;
 }
 
 /* Navbar search form */
@@ -293,7 +289,8 @@ body {
 .menu {
     width: 100%;
     padding-bottom: 10px;
-    padding-top: 60px;
+    padding-top: 30px;
+
 }
 
 .menu h1 {
@@ -302,8 +299,8 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
-    color: #e9ff1f;
-    text-shadow: 2px -3px 0 #000;
+    color: #000;
+    margin-top: 45px;
 }
 
 .menu h1 span {
@@ -331,7 +328,7 @@ body {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 50px;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
 }
 
 .menu .menu_box .menu_card {
@@ -447,6 +444,124 @@ body {
     line-height: 1.4;
 }
 
+/*Team*/
+
+.team {
+    width: 100%;
+    height: 90vh;
+    background-image: url(image/bg1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 5rem;
+
+}
+
+.team h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    margin-bottom: 30px;
+    color: #000;
+
+
+}
+
+.team h1 span {
+    color: #fac031;
+    margin-left: 15px;
+    font-family: mv boli;
+}
+
+.team h1 span::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #fac031;
+    display: block;
+    position: relative;
+    bottom: 15px;
+}
+
+.team .team_box {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 13%;
+}
+
+.team .team_box .profile {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover {
+    border-radius: 20px;
+    height: 320px;
+}
+
+.team .team_box .profile img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover img {
+    border-radius: 20px;
+    margin-top: -230px;
+}
+
+.team .team_box .profile .info {
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover .info {
+    top: 60%;
+}
+
+.team .team_box .profile .info .name {
+    color: #fac031;
+    margin-bottom: 5px;
+}
+
+.team .team_box .profile .info .bio {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto 5px auto;
+    color: #000;
+}
+
+.team .team_box .profile .info .team_icon i {
+    margin: 10px 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #000;
+}
+
+.team .team_box .profile .info .team_icon i:hover {
+    color: #fac031;
+}
+
 /*Footer*/
 footer {
     width: 100%;
@@ -459,7 +574,7 @@ footer .footer_main {
     flex-wrap: wrap;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
-    grid-gap: 25px;
+    grid-gap: 40px;
 }
 
 footer .footer_main .footer_tag {
@@ -495,13 +610,14 @@ footer .end {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 25px;
 }
 
 footer .end span {
     color: #fac031;
     margin-left: 10px;
 }
+
 
 
 

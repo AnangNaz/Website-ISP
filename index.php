@@ -15,13 +15,13 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- My style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
 
     <!-- alpineJS -->
-    <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- App -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
 
@@ -36,18 +36,18 @@
     <nav class="navbar" id="navbar">
         <a href="#" class="navbar-logo">Azarel<span>NET</span>.</a>
         <div class="navbar-nav">
-            <a href="#home">Home</a>
+            <a href="#">Home</a>
             <a href="#Gallary">Promosi</a>
             <a href="#menu">Produk</a>
-            <a href="#contact">Kontak</a>
+            <a href="#team">CEO</a>
         </div>
 
         <div class="navbar-extra">
             <a href="#" id="search-button"><i data-feather="search"></i></a>
-            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i>
+            
                 <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
             </a>
-            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+            
         </div>
     
 <!-- Search Form Start  -->
@@ -57,50 +57,6 @@
   </div>
 
 <!-- Search Form end  -->
-<!-- Shopping Cart Start -->
- <div class="shopping-cart">
-    <template x-for="(item, index) in $store.cart.items" x-keys="index">
-     <div class="cart-item">
-        <img :src="`img/Products/${item.img}`" :alt="item.name">
-        <div class="item-detail">
-            <h3 class="item.name"></h3>
-            <div class="item-price">
-                <span x-text="rupiah(item.price)"></span> &times;
-                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
-                <span x-text="item.quantity"></span>
-                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
-                <span x-text="rupiah(item.total)"></span>
-            </div>
-        </div>
-     </div>
-    </template>
-    <h4 x-show="!$store.cart.items.length" style="margin-top: 1.5rem;"> Cart is Empty  </h4>
-    <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span> </h4>
-    
-    <div class="form-countainer" x-show="$store.cart.items.length">
-        <form action=""  id="checkoutForm">
-            <h5>Customer Detail</h5>
-
-            <label for="name">
-                <span>Name</span>
-                <input type="text" name="name" id="name">
-            </label>
-
-            <label for="email">
-                <span>Email</span>
-                <input type="email" name="email" id="email">
-            </label>
-
-            <label for="phone">
-                <span>Phone</span>
-                <input type="number" name="phone" id="phone" autocomplete="off">
-            </label>
-
-            <button class="checkout-button" type="submit" id="checkout-button" value="Checkout">Checkout</button>
-        </form>
-    </div>
-    </div>
-<!-- Shopping Cart end -->
 
 </nav>
 <!-- Navbar End -->
@@ -110,7 +66,7 @@
     <main class="content">
         <h1>Internetan Tanpa FUP <span>AzarelNET Solusinya</span></h1>
         <p>"Internet Cepat Buat Apa ?" - Entitas Tidak Di kenal</p>
-        <a href="#" class="cta">Langganan Sekarang</a>
+        <a href="https://wa.me/6282339705798?text=Halo%20saya%20ingin%20berlangganan" class="cta">Langganan Sekarang</a>
     </main>
 </section>
 <!-- Hero Section End -->
@@ -256,3 +212,143 @@
 
 
 <!-- menu section end -->
+
+    <!--Team-->
+
+    <div class="team" id="team">
+        <h1>Our<span>CEO</span></h1>
+
+        <div class="team_box">
+            <div class="profile">
+                <img src="image/chef1.png">
+
+                <div class="info">
+                    <h2 class="name">Anang</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="img/nizar.jpg">
+
+                <div class="info">
+                    <h2 class="name">Nizar</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="image/chef3.jpg">
+
+                <div class="info">
+                    <h2 class="name">Rafael</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="image/chef4.jpg">
+
+                <div class="info">
+                    <h2 class="name">Ali</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Footer-->
+
+    <footer>
+        <div class="footer_main">
+
+            <div class="footer_tag">
+                <h2>Location</h2>
+                <p>Serang</p>
+                <p>Cilegon</p>
+                <p>Pandeglang</p>
+                <p>Tangerang</p>
+                <p>Rangkas</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <a href="#">Home</a></p>
+                <a href="#Gallery">Promation Gallery</a></p>
+                <a href="#menu">Layanan Kami</a></p>
+                <a href="#contact">Kontak</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+94 12 3456 789</p>
+                <p>+94 25 5568456</p>
+                <p>NEETAzarel123@gmail.com</p>
+                <p>AzarelNEET@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Our Service</h2>
+                <p>Fast Maintenance</p>
+                <p>Easy Payments</p>
+                <p>24 x 7 Service</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Follows</h2>
+                <i data-feather="facebook"></i></a>
+                <i data-feather="twitter"></i></a>
+                <i data-feather="instagram"></i></a>
+                <i data-feather="linkedin"></i></a>
+            </div>
+
+        </div>
+
+        <p class="end">Nizar Zaidan Syafruddin | Anang Nazarudin | Muhammad Ali Syahbana | Rafael Andhika Permana</p>
+
+    </footer>
+
+
+<!-- Footer Section end -->
+
+    <!-- feather icons -->
+    <script>
+        feather.replace();
+        </script>
+
+        <!-- My javascript -->
+<script src="js/script.js"></script>
