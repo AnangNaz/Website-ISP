@@ -44,17 +44,15 @@
 
         <div class="navbar-extra">
             <a href="#" id="search-button"><i data-feather="search"></i></a>
-            
-                <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
-            </a>
-            
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
     
+    
 <!-- Search Form Start  -->
-  <div class="search-form">
+    <div class="search-form">
     <input type="search" id="search-box" placeholder="search here...">
     <label for="search-box"><i data-feather="search"></i></label>
-  </div>
+    </div>
 
 <!-- Search Form end  -->
 

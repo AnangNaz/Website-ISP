@@ -1,6 +1,6 @@
 :root {
     --primary: #b6895b;
-    --bg: #ffffff;
+    --bg: #000000;
 }
 
 * {
@@ -19,7 +19,7 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg);
+    background-color: #fff;
     color: #fff9f9;
     min-height: 2500px;
 }
@@ -58,14 +58,14 @@ body {
 }
 
 .navbar .navbar-nav a:hover {
-    color: #3e67c1;
+    color: #3a91ef;
 }
 
 .navbar .navbar-nav a::after {
     content: '';
     display: block;
     padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid #3e67c1;
+    border-bottom: 0.1rem solid #3a91ef;
     transform: scaleX(0);
     transition: 0.2s linear;
 }
@@ -80,7 +80,11 @@ body {
 }
 
 .navbar .navbar-extra a:hover {
-    color: #3e67c1;
+    color: var(--primary);
+}
+
+#hamburger-menu {
+    display: none;
 }
 
 /* Navbar search form */
@@ -106,7 +110,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 1.6rem;
-    color: var(--bg);
+    color: #000;
     padding: 1rem;
 }
 
@@ -114,7 +118,7 @@ body {
     cursor: pointer;
     font-size: 2rem;
     margin-right: 1.5rem;
-    color: var(--bg);
+    color: #000;
 }
 
 
@@ -434,16 +438,6 @@ body {
 }
 
 
-
-.contact p {
-    text-align: center;
-    max-width: 40rem;
-    font-size: 80%;
-    margin: auto;
-    font-weight: 700;
-    line-height: 1.4;
-}
-
 /*Team*/
 
 .team {
@@ -453,6 +447,7 @@ body {
     background-size: cover;
     background-position: center;
     padding-top: 5rem;
+
 
 }
 
@@ -656,7 +651,7 @@ footer .end span {
     }
 
     .navbar .navbar-nav a {
-        color: var(--bg);
+        color: #000;
         display: block;
         margin: 1.5rem;
         padding: 0.5rem;
@@ -708,6 +703,9 @@ footer .end span {
         flex-wrap: wrap;
     }
 
+    .team .team-box {
+        flex-wrap: wrap;
+    }
 
     .about h3 {
         text-align: center;

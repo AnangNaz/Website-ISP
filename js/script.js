@@ -1,8 +1,8 @@
+// Toggle class active untuk hamburger menu
 const navbarNav = document.querySelector('.navbar-nav');
 // ketika hamburger menu di klik
 document.querySelector('#hamburger-menu').onclick = () => {
     navbarNav.classList.toggle('active');
-    e.preventDefault();
 };
 
 // Toggle class active untuk search form
@@ -15,12 +15,7 @@ document.querySelector('#search-button').onclick = (e) => {
     e.preventDefault();
 };
 
-// toggle class active untuk shopping-card//
-const shoppingCart = document.querySelector('.shopping-cart');
-document.querySelector('#shopping-cart-button').onclick = (e) => {
-    shoppingCart.classList.toggle('active');
-    e.preventDefault();
-}
+
 // Klik di luar elemen
 const hm = document.querySelector('#hamburger-menu');
 const sb = document.querySelector('#search-button');
@@ -39,30 +34,3 @@ document.addEventListener('click', function (e) {
         shoppingCart.classList.remove('active');
     }
 });
-
-// Modal Box
-
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButton = document.querySelectorAll('.item-detail-button');
-
-itemDetailButton.forEach((btn) => {
-    btn.onclick = (e) => {
-        itemDetailModal.style.display = 'flex';
-        e.preventDefault();
-    };
-});
-
-
-
-// kilk tombol close modal //
-document.querySelector('.modal .close-icon').onclick = (e) => {
-    itemDetailModal.style.display = 'none';
-    e.preventDefault();
-}
-
-// klik di luar modal //
-window.onclick = (e) => {
-    if (e.target === itemDetailModal) {
-        itemDetailModal.style.display = 'none';
-    }
-};
