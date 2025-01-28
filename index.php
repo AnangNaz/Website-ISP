@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +15,25 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- My style -->
-    <link rel="stylesheet" href="css/style1.css"> 
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- alpineJS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 
     <!-- App -->
-     <script src="src/app.js"></script>
+
 </head>
+<style>
+
+</style>
+
+
 <body>
 
 
 
- <!-- Navbar  start-->
-    <nav class="navbar" x-data>
+    <!-- Navbar  start-->
+    <nav class="navbar" id="navbar">
         <a href="#" class="navbar-logo">Azarel<span>NET</span>.</a>
         <div class="navbar-nav">
             <a href="#home">Home</a>
@@ -43,6 +49,59 @@
             </a>
             <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
+    
+<!-- Search Form Start  -->
+  <div class="search-form">
+    <input type="search" id="search-box" placeholder="search here...">
+    <label for="search-box"><i data-feather="search"></i></label>
+  </div>
+
+<!-- Search Form end  -->
+<!-- Shopping Cart Start -->
+ <div class="shopping-cart">
+    <template x-for="(item, index) in $store.cart.items" x-keys="index">
+     <div class="cart-item">
+        <img :src="`img/Products/${item.img}`" :alt="item.name">
+        <div class="item-detail">
+            <h3 class="item.name"></h3>
+            <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                <span x-text="rupiah(item.total)"></span>
+            </div>
+        </div>
+     </div>
+    </template>
+    <h4 x-show="!$store.cart.items.length" style="margin-top: 1.5rem;"> Cart is Empty  </h4>
+    <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span> </h4>
+    
+    <div class="form-countainer" x-show="$store.cart.items.length">
+        <form action=""  id="checkoutForm">
+            <h5>Customer Detail</h5>
+
+            <label for="name">
+                <span>Name</span>
+                <input type="text" name="name" id="name">
+            </label>
+
+            <label for="email">
+                <span>Email</span>
+                <input type="email" name="email" id="email">
+            </label>
+
+            <label for="phone">
+                <span>Phone</span>
+                <input type="number" name="phone" id="phone" autocomplete="off">
+            </label>
+
+            <button class="checkout-button" type="submit" id="checkout-button" value="Checkout">Checkout</button>
+        </form>
+    </div>
+    </div>
+<!-- Shopping Cart end -->
+
 </nav>
 <!-- Navbar End -->
 
@@ -51,7 +110,7 @@
     <main class="content">
         <h1>Internetan Tanpa FUP <span>AzarelNET Solusinya</span></h1>
         <p>"Internet Cepat Buat Apa ?" - Entitas Tidak Di kenal</p>
-        <a href="https://wa.me/6282339705798?text=Halo%20saya%20ingin%20berlangganan" class="cta">Langganan Sekarang</a>
+        <a href="#" class="cta">Langganan Sekarang</a>
     </main>
 </section>
 <!-- Hero Section End -->
@@ -67,7 +126,7 @@
 
                 <h3>Wifi</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
                 </p>
                 <a href="#" class="gallary_btn">Order Now</a>
             </div>
@@ -77,7 +136,7 @@
 
                 <h3>Wifi</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
                 </p>
                 <a href="#" class="gallary_btn">Order Now</a>
             </div>
@@ -87,164 +146,113 @@
 
                 <h3>Wifi</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
                 </p>
                 <a href="#" class="gallary_btn">Order Now</a>
             </div>
-            </div>
-
-</div>
-
-<!--Menu-->
-
-    <section class ="menu" id="menu">
-    <h1>Layanan<span>Kami</span></h1>
-    
-
-    <div class="menu_box">
-        <div class="menu_card">
-
-            <div class="menu_image">
-                <img src="img/SPEED-1.png">
-            </div>
-
-            <div class="small_card">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <div class="menu_info">
-                <h2>10 Mbps</h2>
-                <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat accusamus illo voluptates impedit consequatur
-                </p>
-                <h3>Rp.125.000,-</h3>
-                <div class="menu_icon">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <a href="#" class="menu_btn">Langganan</a>
-            </div>
-
-        </div> 
-        
-        <div class="menu_card">
-
-            <div class="menu_image">
-                <img src="img/20-Mbps.png">
-            </div>
-
-            <div class="small_card">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <div class="menu_info">
-                <h2>20 Mbps</h2>
-                <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat accusamus illo voluptates impedit consequatur
-                </p> 
-                <h3>Rp.235.000,-</h3>
-                <div class="menu_icon">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <a href="#" class="menu_btn">Langganan</a>
-            </div>
-
-        </div> 
-
-        <div class="menu_card">
-
-            <div class="menu_image">
-                <img src="img/50-Mbps.png">
-            </div>
-
-            <div class="small_card">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <div class="menu_info">
-                <h2>50 Mbps</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat accusamus illo voluptates impedit consequatur 
-                </p>
-                <h3>$Rp.325.000,-</h3>
-                <div class="menu_icon">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <a href="#" class="menu_btn">Langganan</a>
-            </div>
-        </div> 
-        </div> 
-</section>
-        
-
-<!-- menu section end -->
-
-    <!--Footer-->
-
-    <footer>
-        <div class="footer_main">
-
-            <div class="footer_tag">
-                <h2>Location</h2>
-                <p>Sri Lanka</p>
-                <p>USA</p>
-                <p>India</p>
-                <p>Japan</p>
-                <p>Italy</p>
-            </div>
-
-            <div class="footer_tag">
-                <h2>Quick Link</h2>
-                <a href="#home">Home</a></p>
-                <a href="#about">Tentang Kami</a></p>
-                <a href="#menu">Menu</a></p>
-                <a href="#contact">Kontak</a></p>
-            </div>
-
-            <div class="footer_tag">
-                <h2>Contact</h2>
-                <p>+94 12 3456 789</p>
-                <p>+94 25 5568456</p>
-                <p>johndeo123@gmail.com</p>
-                <p>foodshop123@gmail.com</p>
-            </div>
-
-            <div class="footer_tag">
-                <h2>Our Service</h2>
-                <p>Fast Delivery</p>
-                <p>Easy Payments</p>
-                <p>24 x 7 Service</p>
-            </div>
-
-            <div class="footer_tag">
-                <h2>Follows</h2>
-                <i data-feather="facebook"></i></a>
-                <i data-feather="twitter"></i></a>
-                <i data-feather="instagram"></i></a>
-                <i data-feather="linkedin"></i></a>
-            </div>
-
         </div>
 
-        <p class="end">Nizar Zaidan Syafruddin | 11223062 | 2024</p>
+    </div>
 
-    </footer>
+    <!--Menu-->
+
+    <section class="menu" id="menu">
+        <h1>Layanan<span>Kami</span></h1>
 
 
-<!-- Footer Section end -->
+        <div class="menu_box">
+            <div class="menu_card">
 
-    <!-- feather icons -->
-    <script>
-        feather.replace();
-        </script>
+                <div class="menu_image">
+                    <img src="img/SPEED-1.png">
+                </div>
+
+                <div class="small_card">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="menu_info">
+                    <h2>10 Mbps</h2>
+                    <p>
+                        Full carbon fiber.
+                        Up to 10 Mbps.
+                        Download and Upload.
+                        Unlimited Quota.
+                    </p>
+                    <h3>Rp.125.000,-</h3>
+                    <div class="menu_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="order.php" class="menu_btn">Langganan</a>
+                </div>
+            </div>
+
+            <div class="menu_card">
+
+                <div class="menu_image">
+                    <img src="img/20-Mbps.png">
+                </div>
+
+                <div class="small_card">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="menu_info">
+                    <h2>20 Mbps</h2>
+                    <p>
+                        Full carbon fiber.
+                        Up to 20 Mbps.
+                        Download and Upload.
+                        Unlimited Quota.
+                    </p>
+                    <h3>Rp.235.000,-</h3>
+                    <div class="menu_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="order.php" class="menu_btn">Langganan</a>
+                </div>
+
+            </div>
+
+            <div class="menu_card">
+
+                <div class="menu_image">
+                    <img src="img/50-Mbps.png">
+                </div>
+
+                <div class="small_card">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="menu_info">
+                    <h2>50 Mbps</h2>
+                    <p>
+                        Full carbon fiber.
+                        Up to 50 Mbps.
+                        Download and Upload.
+                        Unlimited Quota.
+                    </p>
+                    <h3>Rp.325.000,-</h3>
+                    <div class="menu_icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="order.php" class="menu_btn">Langganan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- menu section end -->
