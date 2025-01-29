@@ -3,21 +3,19 @@ session_start(); // Memulai session
 include("koneksi.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = $_POST['nama'];
-    $no = $_POST['no'];
     $kabupaten = $_POST['kabupaten'];
     $kecamatan = $_POST['kecamatan'];
     $desa = $_POST['desa'];
 
-    $stmt = $db->prepare("INSERT INTO transaksi (nama, no, kabupaten, kecamatan, desa) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nama, $no, $kabupaten, $kecamatan, $desa);
+    $stmt = $db->prepare("INSERT INTO daerah ( kabupaten, kecamatan, desa) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss",  $kabupaten, $kecamatan, $desa);
 
     if ($stmt->execute()) {
-        $_SESSION['message'] = "Anda berhasil mendaftar, tunggu sales kami menghubungi anda.";
-        header("Location: order.php"); 
-        exit(); 
+        $_SESSION['message'] = "Daerah berhasil ditambah!.";
+        header("Location: tambah.php");
+        exit();
     } else {
-        $_SESSION['error'] = "Error: " . $stmt->error; 
+        $_SESSION['error'] = "Error: " . $stmt->error;
     }
 
     $stmt->close();
@@ -31,20 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pendaftaran</title>
+    <title>Tambah daerah</title>
     <style>
         body {
             display: flex;
             justify-content: center;
-            /* Mengatur konten secara horizontal di tengah */
             align-items: center;
-            /* Mengatur konten secara vertikal di tengah */
             height: 100vh;
-            /* Mengatur tinggi body menjadi 100% dari viewport */
             margin: 0;
-            /* Menghapus margin default */
             background-color: #f4f4f4;
-            /* Warna latar belakang */
         }
 
         .container {
@@ -101,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container">
-        <h1>Form Pendaftaran</h1>
+        <h1>Form Penambahan Daerah Tercover</h1>
 
         <?php if (isset($_SESSION['message'])): ?>
             <div class="alert alert-success" role="alert">
@@ -115,18 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="alert alert-success" role="alert">
                 <?php
                 echo $_SESSION['message'];
-                unset($_SESSION['message']); 
+                unset($_SESSION['message']);
                 ?>
             </div>
         <?php endif; ?>
 
-        <form action="" method="post">
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
-
-            <label for="no">Nomor Telepon:</label>
-            <input type="tel" id="no" name="no" required>
-
+        <form action="tambah.php" method="post">
             <label for="kabupaten">Kabupaten:</label>
             <input type="text" id="kabupaten" name="kabupaten" required>
 

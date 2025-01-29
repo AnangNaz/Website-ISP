@@ -17,16 +17,14 @@
     <!-- My style -->
     <link rel="stylesheet" href="css/style2.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- alpineJS -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- App -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<style>
-
-</style>
-
 
 <body>
 
@@ -46,28 +44,29 @@
             <a href="#" id="search-button"><i data-feather="search"></i></a>
             <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
-    
-    
-<!-- Search Form Start  -->
-    <div class="search-form">
-    <input type="search" id="search-box" placeholder="search here...">
-    <label for="search-box"><i data-feather="search"></i></label>
-    </div>
 
-<!-- Search Form end  -->
 
-</nav>
-<!-- Navbar End -->
+        <!-- Search Form Start  -->
+        <div class="search-form">
+            <input type="search" id="search" placeholder="search here...">
+            <label for="search"><i data-feather="search"></i></label>
+            <div id="result" style="display: none;"></div>
+        </div>
 
-<!-- Hero Section Start -->
-<section class="hero" id="home">
-    <main class="content">
-        <h1>Internetan Tanpa FUP <span>AzarelNET Solusinya</span></h1>
-        <p>"Internet Cepat Buat Apa ?" - Entitas Tidak Di kenal</p>
-        <a href="https://wa.me/6282339705798?text=Halo%20saya%20ingin%20berlangganan" class="cta">Langganan Sekarang</a>
-    </main>
-</section>
-<!-- Hero Section End -->
+        <!-- Search Form end  -->
+
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Section Start -->
+    <section class="hero" id="home">
+        <main class="content">
+            <h1>Internetan Tanpa FUP <span>AzarelNET Solusinya</span></h1>
+            <p>"Internet Cepat Buat Apa ?" - Entitas Tidak Di kenal</p>
+            <a href="https://wa.me/6282339705798?text=Halo%20saya%20ingin%20berlangganan" class="cta">Langganan Sekarang</a>
+        </main>
+    </section>
+    <!-- Hero Section End -->
 
     <!--Gallary-->
 
@@ -80,7 +79,7 @@
 
                 <h3>Wifi</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
+                    Jaringan kami sudah menggunakan teknologi 5G
                 </p>
                 <a href="#" class="gallary_btn">Order Now</a>
             </div>
@@ -209,25 +208,27 @@
     </section>
 
 
-<!-- menu section end -->
+    <!-- menu section end -->
 
     <!--Team-->
 
     <div class="team" id="team">
-        <h1>Our<span>CEO</span></h1>
+        <h1>Our<span>FOUNDER</span></h1>
 
         <div class="team_box">
             <div class="profile">
-                <img src="image/chef1.png">
+                <img src="img/anang1.jpg">
 
                 <div class="info">
                     <h2 class="name">Anang</h2>
-                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="bio">CEO</p>
 
                     <div class="team_icon">
                         <i class="fa-brands fa-facebook-f"></i>
                         <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com/anang.nazarudin" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -239,12 +240,14 @@
 
                 <div class="info">
                     <h2 class="name">Nizar</h2>
-                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="bio">COO</p>
 
                     <div class="team_icon">
                         <i class="fa-brands fa-facebook-f"></i>
                         <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com/anang.nazarudin" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -256,12 +259,14 @@
 
                 <div class="info">
                     <h2 class="name">Rafael</h2>
-                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="bio">CTO</p>
 
                     <div class="team_icon">
                         <i class="fa-brands fa-facebook-f"></i>
                         <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com/anang.nazarudin" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -273,12 +278,14 @@
 
                 <div class="info">
                     <h2 class="name">Ali</h2>
-                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="bio">CFO</p>
 
                     <div class="team_icon">
                         <i class="fa-brands fa-facebook-f"></i>
                         <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com/anang.nazarudin" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -296,10 +303,10 @@
 
             <div class="footer_tag">
                 <h2>Location</h2>
+                <p>Lampung</p>
                 <p>Serang</p>
                 <p>Cilegon</p>
                 <p>Pandeglang</p>
-                <p>Tangerang</p>
                 <p>Rangkas</p>
             </div>
 
@@ -341,12 +348,50 @@
     </footer>
 
 
-<!-- Footer Section end -->
+    <!-- Footer Section end -->
 
     <!-- feather icons -->
     <script>
         feather.replace();
-        </script>
+    </script>
 
-        <!-- My javascript -->
-<script src="js/script.js"></script>
+    <!-- My javascript -->
+    <script src="js/script1.js"></script>
+
+    <script>
+        const searchInput = document.querySelector('#search');
+        const resultContainer = document.querySelector('#result');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value;
+
+            resultContainer.innerHTML = '';
+
+            if (query) {
+                fetch(`search.php?query=${encodeURIComponent(query)}`)
+                    .then(response => {
+                        console.log('Response:', response); // Tambahkan log ini
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Data:', data); // Tambahkan log ini
+                        if (data.length > 0) {
+                            resultContainer.style.display = 'block'; // Tampilkan hasil
+                            data.forEach(item => {
+                                const div = document.createElement('div');
+                                div.textContent = item;
+                                resultContainer.appendChild(div);
+                            });
+                        } else {
+                            resultContainer.style.display = 'none'; // Sembunyikan jika tidak ada hasil
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            } else {
+                resultContainer.style.display = 'none'; // Sembunyikan jika input kosong
+            }
+        });
+        console.log();
+    </script>

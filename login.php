@@ -5,31 +5,35 @@ include("koneksi.php");
 if (isset($_POST['login'])) {
     $nama = $_POST['nama'];
     $password = $_POST['password'];
-    $nama = mysqli_real_escape_string($db, $nama);
+    $nama = mysqli_real_escape_string($db, $nama); // Sanitasi input
+
+    // Query untuk mengambil data pengguna
     $query = "SELECT * FROM users WHERE nama = '$nama'";
     $result = mysqli_query($db, $query);
 
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
 
+        // Verifikasi password
         if (password_verify($password, $user['password'])) {
-            if ($nama === 'admin' && $password === 'admin') {
-                $_SESSION['user'] = $user['nama'];
-                $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
-                header("Location: admin.php"); 
-                exit();
+            $_SESSION['user'] = $user['nama'];
+            $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
+
+            // Cek apakah pengguna adalah admin berdasarkan nama pengguna
+            if ($user['nama'] === 'admin') { // Misalkan nama pengguna admin adalah 'admin'
+                header("Location: admin.php");
             } else {
-                $_SESSION['user'] = $user['nama'];
-                $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
                 header("Location: index.php");
-                exit();
             }
+            exit();
         } else {
             $_SESSION['message'] = "Password salah!";
         }
     } else {
         $_SESSION['message'] = "Nama pengguna tidak ditemukan!";
     }
+
+    // Jika login gagal, alihkan kembali ke halaman login
     header("Location: login.php");
     exit();
 }
@@ -68,7 +72,7 @@ if (isset($_POST['login'])) {
                 <?php
                 if (isset($_SESSION['message'])) {
                     echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
-                    unset($_SESSION['message']); 
+                    unset($_SESSION['message']);
                 }
                 ?>
             <?php endif; ?>
