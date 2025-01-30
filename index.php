@@ -27,7 +27,31 @@
 </head>
 
 <body>
+    <style>
+        #result {
+            border: 1px solid #ccc;
+            background-color: white;
+            z-index: 1000;
+            color: black;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
 
+        #result div {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        #result div:hover {
+            background-color: grey;
+        }
+    </style>
 
 
     <!-- Navbar  start-->
@@ -370,28 +394,62 @@
             if (query) {
                 fetch(`search.php?query=${encodeURIComponent(query)}`)
                     .then(response => {
-                        console.log('Response:', response); // Tambahkan log ini
+                        console.log('Response:', response); 
                         return response.json();
                     })
                     .then(data => {
-                        console.log('Data:', data); // Tambahkan log ini
+                        console.log('Data:', data); 
                         if (data.length > 0) {
-                            resultContainer.style.display = 'block'; // Tampilkan hasil
+                            resultContainer.style.display = 'block';
                             data.forEach(item => {
                                 const div = document.createElement('div');
                                 div.textContent = item;
+                                div.onclick = () => {
+                                    searchInput.value = item; 
+                                    resultContainer.style.display = 'none';
+                                };
                                 resultContainer.appendChild(div);
+                                console.log('Item added:', item); 
                             });
                         } else {
-                            resultContainer.style.display = 'none'; // Sembunyikan jika tidak ada hasil
+                            resultContainer.style.display = 'none'; 
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
                     });
             } else {
-                resultContainer.style.display = 'none'; // Sembunyikan jika input kosong
+                resultContainer.style.display = 'none'; 
             }
         });
-        console.log();
+
+
+        document.querySelector('label[for="search"]').addEventListener('click', function() {
+            const query = searchInput.value;
+            if (query) {
+                fetch(`search.php?query=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Data:', data);
+                        resultContainer.innerHTML = '';
+                        if (data.length > 0) {
+                            resultContainer.style.display = 'block'; 
+                            data.forEach(item => {
+                                const div = document.createElement('div');
+                                div.textContent = item;
+                                div.onclick = () => {
+                                    searchInput.value = item;
+                                    resultContainer.style.display = 'none'; 
+                                };
+                                resultContainer.appendChild(div);
+                            });
+                        } else {
+                            resultContainer.style.display = 'none'; 
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
     </script>

@@ -89,7 +89,7 @@ body {
 
 /* Navbar search form */
 .navbar .search-form {
-    position: absolute;
+    position: relative;
     top: 100%;
     right: 7%;
     background-color: #fff;
@@ -120,6 +120,7 @@ body {
     margin-right: 1.5rem;
     color: #000;
 }
+
 
 
 /* Hero Section */

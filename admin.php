@@ -91,7 +91,7 @@ $result = $db->query("SELECT * FROM transaksi");
 
         <a href="login.php" class="btn btn-danger">Logout</a>
         
-        <a href="login.php" class="btn btn-Success">Tambah Daerah</a>
+        <a href="tambah.php" class="btn btn-Success">Tambah Daerah</a>
     </div>
 </body>
 
