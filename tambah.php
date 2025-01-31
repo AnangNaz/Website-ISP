@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 300px;
+            width: 420px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -74,6 +74,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .button-style {
             display: inline-block;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            width: 106%;
+            padding: 10px 20px;
+        }
+
+        .button-style:hover {
+            background-color: #218838;
+        }
+
+        .button1-style {
+            display: inline-block;
             width: 100%;
             padding: 10px;
             background-color: #28a745;
@@ -84,10 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             text-decoration: none;
             margin: 10px 0;
-        }
-
-        .button-style:hover {
-            background-color: #218838;
         }
     </style>
 </head>
@@ -123,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="desa">Desa:</label>
             <input type="text" id="desa" name="desa" required>
             <button type="submit" class="button-style">Kirim</button>
-            <a href="index.php" class="button-style">Home</a>
+            <a href="index.php" class="button1-style">Home</a>
         </form>
     </div>
 </body>

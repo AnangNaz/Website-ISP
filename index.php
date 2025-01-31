@@ -105,7 +105,7 @@
                 <p>
                     Jaringan kami sudah menggunakan teknologi 5G
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
+                <a href="#menu" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -115,7 +115,7 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
+                <a href="#menu" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -125,7 +125,7 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
+                <a href="#menu" class="gallary_btn">Order Now</a>
             </div>
         </div>
 

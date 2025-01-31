@@ -58,14 +58,14 @@ body {
 }
 
 .navbar .navbar-nav a:hover {
-    color: #3a91ef;
+    color: var(--primary);
 }
 
 .navbar .navbar-nav a::after {
     content: '';
     display: block;
     padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid #3a91ef;
+    border-bottom: 0.1rem solid var(--primary);
     transform: scaleX(0);
     transition: 0.2s linear;
 }
@@ -89,7 +89,7 @@ body {
 
 /* Navbar search form */
 .navbar .search-form {
-    position: relative;
+    position: absolute;
     top: 100%;
     right: 7%;
     background-color: #fff;
@@ -110,7 +110,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 1.6rem;
-    color: #000;
+    color: var(--bg);
     padding: 1rem;
 }
 
@@ -118,8 +118,9 @@ body {
     cursor: pointer;
     font-size: 2rem;
     margin-right: 1.5rem;
-    color: #000;
+    color: var(--bg);
 }
+
 
 
 
