@@ -5,22 +5,19 @@ include("koneksi.php");
 if (isset($_POST['login'])) {
     $nama = $_POST['nama'];
     $password = $_POST['password'];
-    $nama = mysqli_real_escape_string($db, $nama); // Sanitasi input
+    $nama = mysqli_real_escape_string($db, $nama); 
 
-    // Query untuk mengambil data pengguna
     $query = "SELECT * FROM users WHERE nama = '$nama'";
     $result = mysqli_query($db, $query);
 
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
 
-        // Verifikasi password
         if (password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user['nama'];
             $_SESSION['message'] = "Login berhasil! Selamat datang, " . $user['nama'] . "!";
 
-            // Cek apakah pengguna adalah admin berdasarkan nama pengguna
-            if ($user['nama'] === 'admin') { // Misalkan nama pengguna admin adalah 'admin'
+            if ($user['nama'] === 'admin') { 
                 header("Location: admin.php");
             } else {
                 header("Location: index.php");
@@ -33,7 +30,6 @@ if (isset($_POST['login'])) {
         $_SESSION['message'] = "Nama pengguna tidak ditemukan!";
     }
 
-    // Jika login gagal, alihkan kembali ke halaman login
     header("Location: login.php");
     exit();
 }

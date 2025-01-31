@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- My style -->
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style3.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -50,6 +50,7 @@
 
         #result div:hover {
             background-color: grey;
+            transition: 0.5s;
         }
     </style>
 

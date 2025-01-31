@@ -9,6 +9,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kecamatan = $_POST['kecamatan'];
     $desa = $_POST['desa'];
 
+    // Cek apakah kabupaten ada di tabel daerah
+    $stmt = $db->prepare("SELECT * FROM daerah WHERE kabupaten = ?");
+    $stmt->bind_param("s", $kabupaten);
+    $stmt->execute();
+    $result_kabupaten = $stmt->get_result();
+
+    if ($result_kabupaten->num_rows == 0) {
+        $_SESSION['message'] = "Maaf, kabupaten Anda belum terdaftar!";
+        header("Location: order.php"); // Redirect ke halaman pendaftaran
+        exit();
+    }
+
+    // Jika kabupaten ada, lanjutkan untuk menyimpan data
     $stmt = $db->prepare("INSERT INTO transaksi (nama, no, kabupaten, kecamatan, desa) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $nama, $no, $kabupaten, $kecamatan, $desa);
 
@@ -36,15 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             display: flex;
             justify-content: center;
-            /* Mengatur konten secara horizontal di tengah */
             align-items: center;
-            /* Mengatur konten secara vertikal di tengah */
             height: 100vh;
-            /* Mengatur tinggi body menjadi 100% dari viewport */
             margin: 0;
-            /* Menghapus margin default */
             background-color: #f4f4f4;
-            /* Warna latar belakang */
         }
 
         .container {
@@ -118,18 +126,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Form Pendaftaran</h1>
 
         <?php if (isset($_SESSION['message'])): ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-danger" role="alert">
                 <?php
                 echo $_SESSION['message'];
                 unset($_SESSION['message']);
-                ?>
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_SESSION['message'])): ?>
-            <div class="alert alert-success" role="alert">
-                <?php
-                echo $_SESSION['message'];
-                unset($_SESSION['message']); 
                 ?>
             </div>
         <?php endif; ?>

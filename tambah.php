@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['error'] = "Error: " . $stmt->error;
     }
+    $result = $db->query("SELECT * FROM daerah");
 
     $stmt->close();
     $db->close();
@@ -136,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="desa">Desa:</label>
             <input type="text" id="desa" name="desa" required>
             <button type="submit" class="button-style">Kirim</button>
-            <a href="index.php" class="button1-style">Home</a>
+            <a href="admin.php" class="button1-style">Home</a>
         </form>
     </div>
 </body>

@@ -11,14 +11,23 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $no = $_POST['no'];
 
+    // Validasi nomor hanya angka
+    if (!preg_match('/^[0-9]+$/', $no)) {
+        echo "Nomor hanya boleh terdiri dari angka!";
+        exit();
+    }
+
     $nama = mysqli_real_escape_string($db, $nama);
     $password = mysqli_real_escape_string($db, $password);
     $no = mysqli_real_escape_string($db, $no);
-    $query_check = "SELECT * FROM users WHERE nama = '$nama'";
-    $result_check = mysqli_query($db, $query_check);
 
-    if (mysqli_num_rows($result_check) > 0) {
-        echo "Nama pengguna sudah terdaftar!";
+    // Cek apakah nomor sudah terdaftar
+    $query_check_no = "SELECT * FROM users WHERE no = '$no'";
+    $result_check_no = mysqli_query($db, $query_check_no);
+
+    if (mysqli_num_rows($result_check_no) > 0) {
+        $_SESSION['message'] = "Nomor sudah terdaftar!";
+        header("Location: register.php"); // Redirect ke halaman register
         exit();
     }
 
@@ -60,6 +69,16 @@ if (isset($_POST['register'])) {
     <div class="main d-flex justify-content-center align-items-center">
         <div class="login-box p-4 shadow">
             <h3 class="text-center">Register</h3>
+
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+            <?php endif; ?>
+
             <form action="register.php" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
@@ -71,7 +90,7 @@ if (isset($_POST['register'])) {
                 </div>
                 <div class="mb-3">
                     <label for="nomor" class="form-label">Nomor</label>
-                    <input type="text" class="form-control" name="no" id="nomor" required>
+                    <input type="tel" class="form-control" name="no" id="nomor" required pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
                 <button class="btn btn-primary w-100" type="submit" name="register">Register</button>
             </form>
