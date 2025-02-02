@@ -299,7 +299,7 @@
             </div>
 
             <div class="profile">
-                <img src="image/chef4.jpg">
+                <img src="img/ali.jpg">
 
                 <div class="info">
                     <h2 class="name">Ali</h2>
@@ -308,7 +308,7 @@
                     <div class="team_icon">
                         <i class="fa-brands fa-facebook-f"></i>
                         <i class="fa-brands fa-twitter"></i>
-                        <a href="https://www.instagram.com/anang.nazarudin" target="_blank">
+                        <a href="https://www.instagram.com/alisyahbana0" target="_blank">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
